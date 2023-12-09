@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useUser } from '../UserContext';
-import FileDeleteButton from './FileDeleteButton'; // Adjust the import path accordingly
+import FileDeleteButton from './FileDeleteButton';
 import "./filelist.css"
+
 const FileList = () => {
   const [files, setFiles] = useState([]);
   const { userId } = useUser();
 
   const handleDelete = (deletedFileId) => {
-    // Remove the deleted file from the local state
     setFiles((prevFiles) => prevFiles.filter((file) => file.id !== deletedFileId));
   };
 
@@ -26,6 +26,7 @@ const FileList = () => {
       fetchFiles();
     }
   }, [userId,files]);
+
 
   return (
     <div className="list">

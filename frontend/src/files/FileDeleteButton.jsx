@@ -6,7 +6,7 @@ const FileDeleteButton = ({ fileId, onDelete }) => {
   const handleDelete = async () => {
     try {
       await axios.delete(`http://localhost:9000/files/${fileId}`);
-      onDelete(fileId); // Callback to update the parent component's state after deletion
+      onDelete(fileId); 
       alert('File deleted successfully');
     } catch (error) {
       console.error('Error deleting file:', error);

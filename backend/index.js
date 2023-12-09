@@ -1,4 +1,4 @@
-// index.js
+
 const express = require("express");
 const mysql = require("mysql");
 const cors = require("cors");
@@ -61,16 +61,6 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage: storage });
 
-// app.post('/upload', upload.single('file'), (req, res) => {
-//     const { user_id } = req.body;
-//     const file_upload = req.file.filename;
-
-//     const insertQuery = 'INSERT INTO files (user_id, file_upload) VALUES (?, ?)';
-//     db.query(insertQuery, [user_id, file_upload], (err, result) => {
-//         if (err) throw err;
-//         res.json({ success: true, message: 'File uploaded successfully' });
-//     });
-// });
 
 app.post('/upload/:user_id', upload.single('file'), (req, res) => {
     const { user_id } = req.params;

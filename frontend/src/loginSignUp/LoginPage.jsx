@@ -20,8 +20,7 @@ const LoginPage = () => {
 
       const { userId, message } = response.data;
       alert(message);
-
-      // Set the userId in the context
+      
       setUser(userId);
 
       navigate("/fileupload");
